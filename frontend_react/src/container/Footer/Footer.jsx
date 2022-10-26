@@ -4,6 +4,9 @@ import { AppWrap, MotionWrap } from '../../wrapper'
 import { client } from '../../client'
 import './Footer.scss'
 
+const EMAIL = 'vincent.dellalibera@gmail.com'
+const TEL = 'soon'
+
 const Footer = () => {
     const [formData, setFormData] = useState({
         name: '',
@@ -43,14 +46,14 @@ const Footer = () => {
             <div className="app__footer-cards">
                 <div className="app__footer-card">
                     <img src={images.email} alt="email" />
-                    <a href="mailto:hello@vincent.com" className="p-text">
-                        hello@vincent.com
+                    <a href={`mailto:${EMAIL}`} className="p-text">
+                        {EMAIL}
                     </a>
                 </div>
                 <div className="app__footer-card">
                     <img src={images.mobile} alt="mobile" />
-                    <a href="tel: +1 (123) 456-789" className="p-text">
-                        +1 (123) 456-789
+                    <a href="tel:" className="p-text">
+                        {TEL}
                     </a>
                 </div>
             </div>
