@@ -118,36 +118,34 @@ This is an example of how to list things you need to use the software and how to
 
 ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. Clone the repo
    ```sh
    git clone https://github.com/gobwah/portfolio_website2.git
    ```
-3. Open console in `/backend_sanity`
-4. Install Sanity
+2. Open console in `/backend_sanity`
+3. Install Sanity
    ```sh
    npm install -g @sanity/cli
    sanity init
    ```
-5. Open console in `/frontend_react`
-6. Install dependencies
+4. Open console in `/frontend_react`
+5. Install dependencies
     ```sh
     npm install
     ```
-7. Taking .env.example file as an example, create a .env file at the root of `/frontend_react` to store your Sanity information
+6. Taking .env.example file as an example, create a .env file at the root of `/frontend_react` to store your Sanity information
    ```env
    REACT_APP_SANITY_PROJECT_ID = abcdefgh
    REACT_APP_SANITY_TOKEN = e8962t2zzsd5rggf1
    ```
-8. In case you don't know where to find that, re-open a console in `/backend_sanity` and type
+7. In case you don't know where to find that, re-open a console in `/backend_sanity` and type
     ```sh
     sanity manage
     ```
     It will open a browser page where you can find quite easily your project ID. Then, on this page, go to `API` menu:
     * Go to `CORS origins` sub-menu and click on "+ Add CORS origin". Enter your localhost address (localhost:3000 by default), check "Allow credentials" and click "Save"
     * Go to `Tokens` and click on "+ Add API token". Give it a name, select "Editor" as a permission and click "Save".
-    
-    Now you can go back to section 5.
+8. Now you can go back to section 5.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
