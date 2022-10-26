@@ -31,7 +31,7 @@ const Testimonial = () => {
 
     return (
         <>
-            {testimonials.length && (
+            {testimonials.length ? (
                 <>
                     <div className="app__testimonial-item app__flex">
                         <img
@@ -80,18 +80,27 @@ const Testimonial = () => {
                         </div>
                     </div>
                 </>
+            ) : (
+                <div className="app__testimonial-soon">
+                    <p className="p-text">Comming soon</p>
+                    <div className="dot-elastic"></div>
+                </div>
             )}
 
             <div className="app__testimonial-brands app__flex">
-                {brands.map((brand, index) => (
-                    <motion.div
-                        whileInView={{ opacity: [0, 1] }}
-                        transition={{ duration: 0.5, type: 'tween' }}
-                        key={`${index}-${brand.id}`}
-                    >
-                        <img src={urlFor(brand.imgUrl)} alt={brand.name} />
-                    </motion.div>
-                ))}
+                {brands
+                    .sort((brand1, brand2) =>
+                        brand1.name.localeCompare(brand2.name)
+                    )
+                    .map((brand, index) => (
+                        <motion.div
+                            whileInView={{ opacity: [0, 1] }}
+                            transition={{ duration: 0.5, type: 'tween' }}
+                            key={`${index}-${brand.id}`}
+                        >
+                            <img src={urlFor(brand.imgUrl)} alt={brand.name} />
+                        </motion.div>
+                    ))}
             </div>
         </>
     )
