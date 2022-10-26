@@ -8,9 +8,9 @@ const Navbar = () => {
     const [toogle, setToogle] = useState(false)
     return (
         <nav className="app__navbar">
-            <div className="app__navbar-logo">
+            <a className="app__navbar-logo" href="/">
                 <img src={images.logo} alt={'logo'} />
-            </div>
+            </a>
             <ul className="app__navbar-links">
                 {[
                     'home',
