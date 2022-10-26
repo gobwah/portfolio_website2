@@ -30,7 +30,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/gobwah/portfolio_website2">
+  <a href="https://vincent-dellalibera.netlify.app">
     <img src="frontend_react/src/assets/logo.png" alt="Logo" width="100%" height="100%">
   </a>
 
@@ -42,7 +42,7 @@
     <a href="https://github.com/gobwah/portfolio_website2"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/gobwah/portfolio_website2">View Demo</a>
+    <a href="https://vincent-dellalibera.netlify.app">View Demo</a>
     ·
     <a href="https://github.com/gobwah/portfolio_website2/issues">Report Bug</a>
     ·
@@ -202,14 +202,20 @@ Project Link: [https://github.com/gobwah/portfolio_website2](https://github.com/
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [contributors-shield]: https://img.shields.io/github/contributors/gobwah/portfolio_website2.svg?style=for-the-badge
 [contributors-url]: https://github.com/gobwah/portfolio_website2/graphs/contributors
+
 [forks-shield]: https://img.shields.io/github/forks/gobwah/portfolio_website2.svg?style=for-the-badge
 [forks-url]: https://github.com/gobwah/portfolio_website2/network/members
+
 [stars-shield]: https://img.shields.io/github/stars/gobwah/portfolio_website2.svg?style=for-the-badge
 [stars-url]: https://github.com/gobwah/portfolio_website2/stargazers
+
 [issues-shield]: https://img.shields.io/github/issues/gobwah/portfolio_website2.svg?style=for-the-badge
 [issues-url]: https://github.com/gobwah/portfolio_website2/issues
+
 [license-shield]: https://img.shields.io/github/license/gobwah/portfolio_website2.svg?style=for-the-badge
 [license-url]: https://github.com/gobwah/portfolio_website2/blob/master/LICENSE.txt
+
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/vincent-dellalibera
+
 [product-screenshot]: frontend_react/src/assets/PortfolioWebsite2Screenshot.jpg
