@@ -1,3 +1,6 @@
+# To see global README.md
+Click [here](https://github.com/gobwah/portfolio_website2)
+
 # Sanity Clean Content Studio
 
 Congratulations, you have now installed the Sanity Content Studio, an open source real-time content editing environment connected to the Sanity backend.
