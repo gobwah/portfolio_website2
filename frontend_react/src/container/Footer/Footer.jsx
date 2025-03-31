@@ -1,44 +1,12 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { images } from '../../constants'
-import { AppWrap, MotionWrap } from '../../wrapper'
-import { client } from '../../client'
 import './Footer.scss'
+import { AppWrap, MotionWrap } from '../../wrapper'
 
 const EMAIL = 'vincent.dellalibera@gmail.com'
 const TEL = 'soon'
 
 const Footer = () => {
-    const [formData, setFormData] = useState({
-        name: '',
-        email: '',
-        message: '',
-    })
-    const [isFormSubmitted, setIsFormSubmitted] = useState(false)
-    const [loading, setLoading] = useState(false)
-
-    const { name, email, message } = formData
-
-    const handleChangeInput = (e) => {
-        const { name, value } = e.target
-
-        setFormData({ ...formData, [name]: value })
-    }
-
-    const handleSubmit = (e) => {
-        setLoading(true)
-        const contact = {
-            _type: 'contact',
-            name: name,
-            email: email,
-            message: message,
-        }
-
-        client.create(contact).then(() => {
-            setLoading(false)
-            setIsFormSubmitted(true)
-        })
-    }
-
     return (
         <>
             <h2 className="head-text">Take a coffee & talk with me</h2>
