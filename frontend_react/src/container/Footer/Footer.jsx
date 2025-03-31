@@ -57,53 +57,6 @@ const Footer = () => {
                     </a>
                 </div>
             </div>
-
-            {!isFormSubmitted ? (
-                <div className="app__footer-form app__flex">
-                    <div className="app__flex">
-                        <input
-                            className="p-text"
-                            type="text"
-                            placeholder="Your Name"
-                            value={name}
-                            onChange={handleChangeInput}
-                            name="name"
-                        />
-                    </div>
-                    <div className="app__flex">
-                        <input
-                            className="p-text"
-                            type="email"
-                            placeholder="Your Email"
-                            value={email}
-                            onChange={handleChangeInput}
-                            name="email"
-                        />
-                    </div>
-                    <div className="app__flex">
-                        <textarea
-                            className="p-text"
-                            placeholder="Your Message"
-                            value={message}
-                            name="message"
-                            onChange={handleChangeInput}
-                        />
-                    </div>
-                    <button
-                        type="button"
-                        className="p-text"
-                        onClick={handleSubmit}
-                    >
-                        {loading ? 'Sending...' : 'Send Message'}
-                    </button>
-                </div>
-            ) : (
-                <div>
-                    <h3 className="head-text">
-                        Thank you for staying in touch
-                    </h3>
-                </div>
-            )}
         </>
     )
 }
