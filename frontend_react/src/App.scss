@@ -29,10 +29,14 @@
     flex: 1;
     width: 100%;
     flex-direction: column;
-    padding: 4rem 2rem;
+    /* 6rem top clears the fixed navbar (~74px) for sections whose content is
+       taller than the viewport; kept symmetric so centred content does not shift */
+    padding: 6rem 2rem;
 
     @media screen and (max-width: 450px) {
-        padding: 4rem 1rem 2rem;
+        /* top and bottom both +2rem: clears the navbar while keeping the same
+           top/bottom differential, so centred content stays exactly where it was */
+        padding: 6rem 1rem 4rem;
     }
 }
 
