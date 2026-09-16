@@ -78,18 +78,24 @@
 
 .app__work-img {
     width: 100%;
-    height: 230px;
+    /* aspect box rather than a fixed height: project shots are wide, and a
+       230px box left them letterboxed once cropping was turned off */
+    aspect-ratio: 16 / 10;
+    height: auto;
     position: relative;
 
     img {
         width: 100%;
         height: 100%;
         border-radius: 0.5rem;
-        object-fit: cover;
+        /* contain, not cover: these are wide screenshots and cover cut them mid-word */
+        object-fit: contain;
+        background-color: var(--primary-color);
+        padding: 0.5rem;
     }
 
     @media screen and (min-width: 2000px) {
-        height: 350px;
+        aspect-ratio: 16 / 9;
     }
 }
 
