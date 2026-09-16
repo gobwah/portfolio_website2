@@ -36,6 +36,15 @@ const Header = () => {
                         <p className="p-text">Web Developer</p>
                         <p className="p-text">Fullstack</p>
                     </div>
+
+                    <div className="app__header-actions">
+                        <a href="#work" className="app__header-btn primary">
+                            View my work
+                        </a>
+                        <a href="#contact" className="app__header-btn ghost">
+                            Get in touch
+                        </a>
+                    </div>
                 </div>
             </motion.div>
 
