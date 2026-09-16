@@ -10,7 +10,7 @@
     justify-content: space-evenly;
     align-items: center;
     flex-wrap: wrap;
-    margin: 4rem 2rem 2rem;
+    margin: 2rem 2rem 1rem;
 
     .app__footer-card {
         min-width: 290px;
@@ -57,61 +57,29 @@
     }
 }
 
-.app__footer-cards .app__footer-card:last-child {
-    background-color: #f2f7fb;
+/* p.* to outrank .p-text, which loads later in the bundle */
+p.app__footer-intro {
+    max-width: 520px;
+    margin-top: 1rem;
+    text-align: center;
 }
 
-.app__footer-form {
-    width: 60%;
-    flex-direction: column;
-    margin: 1rem 2rem;
+.app__footer-cta {
+    margin-top: 0.5rem;
+    padding: 1rem 2rem;
 
-    div {
-        width: 100%;
-        margin: 0.75rem 0;
-        border-radius: 10px;
-        cursor: pointer;
-        background-color: var(--primary-color);
+    border-radius: 10px;
+    background-color: var(--secondary-color);
 
-        transition: all 0.3s ease-in-out;
+    font-family: var(--font-base);
+    font-weight: 500;
+    color: var(--white-color);
+    text-decoration: none;
 
-        input,
-        textarea {
-            width: 100%;
-            padding: 0.95rem;
-            border: none;
-            border-radius: 7px;
-            background-color: var(--primary-color);
-            font-family: var(--font-base);
-            color: var(--secondary-color);
-            outline: none;
-        }
+    transition: all 0.3s ease-in-out;
 
-        textarea {
-            height: 170px;
-        }
-
-        &:hover {
-            box-shadow: 0 0 25px var(--primary-color);
-        }
-    }
-
-    button {
-        padding: 1rem 2rem;
-        border-radius: 10px;
-        border: none;
-        background-color: var(--secondary-color);
-
-        font-weight: 500;
-        color: var(--white-color);
-        outline: none;
-        margin: 2rem 0 0 0;
-        font-family: var(--font-base);
-        cursor: pointer;
-    }
-
-    @media screen and (max-width: 768px) {
-        width: 100%;
-        margin: 1rem 0;
+    &:hover {
+        box-shadow: 0 0 25px rgba(49, 59, 172, 0.25);
+        transform: translateY(-2px);
     }
 }
