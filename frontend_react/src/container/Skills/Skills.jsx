@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import ReactToolTip from 'react-tooltip'
+import { Tooltip as ReactToolTip } from 'react-tooltip'
 import { motion } from 'framer-motion'
 import { AppWrap, MotionWrap } from '../../wrapper'
 import { urlFor, client } from '../../client'
@@ -75,8 +75,8 @@ const Skills = () => {
                                                 }}
                                                 transition={{ duration: 0.5 }}
                                                 className="app__skills-exp-work"
-                                                data-tip
-                                                data-for={work.name}
+                                                data-tooltip-id={work.name}
+                                                data-tooltip-content={work.desc}
                                             >
                                                 <h4 className="bold-text">
                                                     {work.name}
@@ -87,12 +87,11 @@ const Skills = () => {
                                             </motion.div>
                                             <ReactToolTip
                                                 id={work.name}
+                                                place="top"
                                                 effect="solid"
                                                 arrowColor="#fff"
                                                 className="skills-tooltip"
-                                            >
-                                                {work.desc}
-                                            </ReactToolTip>
+                                            />
                                         </div>
                                     ))}
                                 </motion.div>
