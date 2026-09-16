@@ -7,8 +7,10 @@
 	"author": "Vincent <vincou40@gmail.com>",
 	"license": "UNLICENSED",
 	"scripts": {
-		"start": "sanity start",
-		"build": "sanity build"
+		"dev": "sanity dev",
+		"start": "sanity dev",
+		"build": "sanity build",
+		"preview": "sanity preview"
 	},
 	"keywords": [
 		"sanity"
