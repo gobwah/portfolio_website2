@@ -2,18 +2,17 @@ import React from 'react'
 import { images } from '../../constants'
 import './Footer.scss'
 import { AppWrap, MotionWrap } from '../../wrapper'
+import { useLanguage } from '../../i18n'
 
 const EMAIL = 'vincent.dellalibera@gmail.com'
 
 const Footer = () => {
+    const { t } = useLanguage()
     return (
         <>
-            <h2 className="head-text">Take a coffee &amp; talk with me</h2>
+            <h2 className="head-text">{t('footer.title')}</h2>
 
-            <p className="p-text app__footer-intro">
-                I&apos;m open to new opportunities and interesting projects. The
-                quickest way to reach me is by email.
-            </p>
+            <p className="p-text app__footer-intro">{t('footer.intro')}</p>
 
             <div className="app__footer-cards">
                 <div className="app__footer-card">
@@ -25,7 +24,7 @@ const Footer = () => {
             </div>
 
             <a href={`mailto:${EMAIL}`} className="app__footer-cta">
-                Send me an email
+                {t('footer.cta')}
             </a>
         </>
     )

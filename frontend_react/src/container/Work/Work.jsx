@@ -3,6 +3,7 @@ import { AiFillEye, AiFillGithub } from 'react-icons/ai'
 import { motion } from 'framer-motion'
 import { AppWrap, MotionWrap } from '../../wrapper'
 import { urlFor, client } from '../../client'
+import { useLanguage } from '../../i18n'
 import './Work.scss'
 
 const getCategoriesFromWorks = (works) => {
@@ -21,6 +22,7 @@ const getCategoriesFromWorks = (works) => {
 }
 
 const Work = () => {
+    const { t } = useLanguage()
     const [activeFilter, setActiveFilter] = useState('All')
     const [animateCard, setAnimateCard] = useState({ y: 0, opacity: 1 })
     const [works, setWorks] = useState([])
@@ -55,8 +57,8 @@ const Work = () => {
     return (
         <>
             <h2 className="head-text">
-                My creative <span>Portfolio</span>
-                <br /> Section
+                {t('work.title')} <span>{t('work.titleHighlight')}</span>
+                <br /> {t('work.titleEnd')}
             </h2>
 
             <div className="app__work-filter">
@@ -68,7 +70,7 @@ const Work = () => {
                         }`}
                         onClick={() => handleWorkFilter(item)}
                     >
-                        {item}
+                        {item === 'All' ? t('work.all') : item}
                     </div>
                 ))}
             </div>
