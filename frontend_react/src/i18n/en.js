@@ -10,6 +10,8 @@ const en = {
     'nav.testimonials': 'testimonials',
     'nav.contact': 'contact',
     'nav.language': 'Language',
+    'nav.themeToDark': 'Switch to dark theme',
+    'nav.themeToLight': 'Switch to light theme',
 
     'header.greeting': 'Hello, I am',
     'header.role': 'Web Developer',
