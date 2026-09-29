@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { urlFor, client } from '../../client'
 import { AppWrap, MotionWrap } from '../../wrapper'
-import { localize, useContentLanguage } from '../../i18n'
+import localize from '../../i18n/localize'
+import useContentLanguage from '../../i18n/useContentLanguage'
 
 import './About.scss'
 const About = () => {
