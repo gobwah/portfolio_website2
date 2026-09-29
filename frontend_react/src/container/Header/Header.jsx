@@ -3,6 +3,7 @@ import './Header.scss'
 import { motion } from 'framer-motion'
 import { images } from '../../constants'
 import { AppWrap } from '../../wrapper'
+import { useLanguage } from '../../i18n'
 
 const scaleVariants = {
     whileInView: {
@@ -16,6 +17,7 @@ const scaleVariants = {
 }
 
 const Header = () => {
+    const { t } = useLanguage()
     return (
         <div className="app__header app__flex">
             <motion.div
@@ -27,22 +29,22 @@ const Header = () => {
                     <div className="badge-cmp app__flex">
                         <span>🖐</span>
                         <div style={{ marginLeft: 20 }}>
-                            <p className="p-text">Hello, I am</p>
+                            <p className="p-text">{t('header.greeting')}</p>
                             <h1 className="head-text">Vincent</h1>
                         </div>
                     </div>
 
                     <div className="tag-cmp app__flex">
-                        <p className="p-text">Web Developer</p>
-                        <p className="p-text">Fullstack</p>
+                        <p className="p-text">{t('header.role')}</p>
+                        <p className="p-text">{t('header.stack')}</p>
                     </div>
 
                     <div className="app__header-actions">
                         <a href="#work" className="app__header-btn primary">
-                            View my work
+                            {t('header.viewWork')}
                         </a>
                         <a href="#contact" className="app__header-btn ghost">
-                            Get in touch
+                            {t('header.getInTouch')}
                         </a>
                     </div>
                 </div>

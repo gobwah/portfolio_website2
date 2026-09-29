@@ -3,9 +3,11 @@ import { Tooltip as ReactToolTip } from 'react-tooltip'
 import { motion } from 'framer-motion'
 import { AppWrap, MotionWrap } from '../../wrapper'
 import { urlFor, client } from '../../client'
+import { useLanguage } from '../../i18n'
 import './Skills.scss'
 
 const Skills = () => {
+    const { t } = useLanguage()
     const [skills, setSkills] = useState([])
     const [experience, setExperience] = useState([])
 
@@ -24,7 +26,7 @@ const Skills = () => {
 
     return (
         <>
-            <h2 className="head-text">Skills & Experience</h2>
+            <h2 className="head-text">{t('skills.title')}</h2>
 
             <div className="app__skills-container">
                 <motion.div className="app__skills-list">
