@@ -20,6 +20,24 @@
             href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap"
         />
 
+        <!-- Apply the theme before first paint so dark-mode visitors don't see a light flash -->
+        <script>
+            (function () {
+                var theme
+                try {
+                    theme = localStorage.getItem('theme')
+                } catch (e) {}
+                if (theme !== 'light' && theme !== 'dark') {
+                    theme =
+                        window.matchMedia &&
+                        window.matchMedia('(prefers-color-scheme: dark)').matches
+                            ? 'dark'
+                            : 'light'
+                }
+                document.documentElement.dataset.theme = theme
+            })()
+        </script>
+
         <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
         <link rel="apple-touch-icon" href="%PUBLIC_URL%/apple-touch-icon.png" />
 

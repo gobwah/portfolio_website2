@@ -8,6 +8,40 @@
     --gray-color: #6b7688;
     --brown-color: #46364a;
     --white-color: #ffffff;
+
+    --surface-color: #ffffff;
+    --accent-bg-color: #fef4f5;
+    --dot-color: #cbcbcb;
+    --navbar-bg-color: rgba(255, 255, 255, 0.25);
+    --navbar-border-color: rgba(255, 255, 255, 0.18);
+
+    color-scheme: light;
+}
+
+/* --white-color stays white: it is the text colour on --secondary-color */
+:root[data-theme='dark'] {
+    --primary-color: #0f1220;
+    --secondary-color: #6d77e8;
+    --black-color: #eef0f6;
+    --lightGray-color: #2c3144;
+    --gray-color: #a3acbd;
+    --brown-color: #d6c7da;
+
+    --surface-color: #1a1e2e;
+    --accent-bg-color: #262a3d;
+    --dot-color: #3c4258;
+    --navbar-bg-color: rgba(15, 18, 32, 0.6);
+    --navbar-border-color: rgba(255, 255, 255, 0.06);
+
+    color-scheme: dark;
+}
+
+:root[data-theme='dark'] #home {
+    background-image: none;
+}
+
+:root[data-theme='dark'] .app__navbar-menu div {
+    background-image: none;
 }
 
 * {
@@ -15,4 +49,14 @@
     padding: 0;
     margin: 0;
     scroll-behavior: smooth;
+}
+
+/* the logo's wordmark is black: flip it to white, hue-rotate keeps the icon purple */
+:root[data-theme='dark'] .app__navbar-logo img {
+    filter: invert(1) hue-rotate(180deg);
+}
+
+:root[data-theme='dark'] .app__header-badge .badge-cmp,
+:root[data-theme='dark'] .app__header-badge .tag-cmp {
+    background-color: var(--surface-color);
 }

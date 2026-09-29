@@ -4,7 +4,7 @@
 }
 
 .app__whitebg {
-    background-color: var(--white-color);
+    background-color: var(--surface-color);
 }
 
 .app__primarybg {
@@ -113,7 +113,7 @@
         width: 40px;
         height: 40px;
         border-radius: 50%;
-        background-color: var(--white-color);
+        background-color: var(--surface-color);
         margin: 0.25rem 0;
         border: 1px solid var(--lightGray-color);
         cursor: pointer;
@@ -165,7 +165,7 @@
         width: 10px;
         height: 10px;
         border-radius: 50%;
-        background-color: #cbcbcb;
+        background-color: var(--dot-color);
         margin: 0.5rem;
 
         transition: background-color 0.2s ease-in-out;

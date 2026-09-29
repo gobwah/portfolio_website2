@@ -104,7 +104,7 @@
         height: 100px;
         border-radius: 50%;
 
-        background: var(--white-color);
+        background: var(--surface-color);
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 
         img {
@@ -229,7 +229,7 @@
     }
 
     &.ghost {
-        background-color: var(--white-color);
+        background-color: var(--surface-color);
         color: var(--secondary-color);
         border: 1px solid var(--lightGray-color);
     }

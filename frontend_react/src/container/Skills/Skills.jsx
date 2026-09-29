@@ -100,7 +100,7 @@ const Skills = () => {
                                                 id={work.name}
                                                 place="top"
                                                 effect="solid"
-                                                arrowColor="#fff"
+                                                arrowColor="var(--surface-color)"
                                                 className="skills-tooltip"
                                             />
                                         </div>

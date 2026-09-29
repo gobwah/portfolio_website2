@@ -6,10 +6,10 @@
     align-items: center;
 
     padding: 1rem 2rem;
-    background: rgba(255, 255, 255, 0.25);
+    background: var(--navbar-bg-color);
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    border: 1px solid var(--navbar-border-color);
     position: fixed;
     z-index: 2;
 }
@@ -117,7 +117,7 @@
         flex-direction: column;
 
         background: url('../../assets/bgWhite.png');
-        background-color: var(--white-color);
+        background-color: var(--surface-color);
         background-size: cover;
         background-repeat: repeat;
 
@@ -202,5 +202,29 @@
         &.active {
             font-weight: 700;
         }
+    }
+}
+
+.app__navbar-theme {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 1rem;
+    padding: 0.25rem;
+
+    background: none;
+    border: none;
+    cursor: pointer;
+
+    color: var(--gray-color);
+    transition: color 0.3s ease-in-out;
+
+    svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    &:hover {
+        color: var(--secondary-color);
     }
 }

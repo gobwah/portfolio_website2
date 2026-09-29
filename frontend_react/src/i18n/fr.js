@@ -10,6 +10,8 @@ const fr = {
     'nav.testimonials': 'témoignages',
     'nav.contact': 'contact',
     'nav.language': 'Langue',
+    'nav.themeToDark': 'Passer au thème sombre',
+    'nav.themeToLight': 'Passer au thème clair',
 
     'header.greeting': 'Bonjour, je suis',
     'header.role': 'Développeur Web',
