@@ -2,12 +2,13 @@ import React, { useState, useEffect } from 'react'
 import { HiChevronLeft, HiChevronRight } from 'react-icons/hi'
 import { motion } from 'framer-motion'
 import { AppWrap, MotionWrap } from '../../wrapper'
+import localize from '../../i18n/localize'
 import { urlFor, client } from '../../client'
 import { useLanguage } from '../../i18n'
 import './Testimonial.scss'
 
 const Testimonial = () => {
-    const { t } = useLanguage()
+    const { t, language: lang } = useLanguage()
     const [brands, setBrands] = useState([])
     const [testimonials, setTestimonials] = useState([])
     const [currentIndex, setCurrentIndex] = useState(0)
@@ -42,7 +43,7 @@ const Testimonial = () => {
                         />
                         <div className="app__testimonial-content">
                             <p className="p-text">
-                                {currentTestimonial.feedback}
+                                {localize(currentTestimonial, 'feedback', lang)}
                             </p>
                             <div>
                                 <h4 className="bold-text">

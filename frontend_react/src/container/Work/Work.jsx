@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { AiFillEye, AiFillGithub } from 'react-icons/ai'
 import { motion } from 'framer-motion'
 import { AppWrap, MotionWrap } from '../../wrapper'
+import localize from '../../i18n/localize'
 import { urlFor, client } from '../../client'
 import { useLanguage } from '../../i18n'
 import './Work.scss'
@@ -22,7 +23,7 @@ const getCategoriesFromWorks = (works) => {
 }
 
 const Work = () => {
-    const { t } = useLanguage()
+    const { t, language: lang } = useLanguage()
     const [activeFilter, setActiveFilter] = useState('All')
     const [animateCard, setAnimateCard] = useState({ y: 0, opacity: 1 })
     const [works, setWorks] = useState([])
@@ -82,7 +83,9 @@ const Work = () => {
             >
                 {filterWork
                     .sort((work1, work2) =>
-                        work1.title.localeCompare(work2.title)
+                        localize(work1, 'title', lang).localeCompare(
+                            localize(work2, 'title', lang)
+                        )
                     )
                     .map((work, index) => (
                         <div className="app__work-item app__flex" key={index}>
@@ -141,9 +144,11 @@ const Work = () => {
                             </div>
 
                             <div className="app__work-content app__flex">
-                                <h4 className="bold-text">{work.title}</h4>
+                                <h4 className="bold-text">
+                                    {localize(work, 'title', lang)}
+                                </h4>
                                 <p className="p-text" style={{ marginTop: 10 }}>
-                                    {work.description}
+                                    {localize(work, 'description', lang)}
                                 </p>
 
                                 <div className="app__work-tag app__flex">
