@@ -2,12 +2,14 @@ import React, { useState, useEffect } from 'react'
 import { Tooltip as ReactToolTip } from 'react-tooltip'
 import { motion } from 'framer-motion'
 import { AppWrap, MotionWrap } from '../../wrapper'
+import { localize, useContentLanguage } from '../../i18n'
 import { urlFor, client } from '../../client'
 import './Skills.scss'
 
 const Skills = () => {
     const [skills, setSkills] = useState([])
     const [experience, setExperience] = useState([])
+    const lang = useContentLanguage()
 
     useEffect(() => {
         const queryExperience = '*[_type == "experiences"]'
@@ -76,10 +78,18 @@ const Skills = () => {
                                                 transition={{ duration: 0.5 }}
                                                 className="app__skills-exp-work"
                                                 data-tooltip-id={work.name}
-                                                data-tooltip-content={work.desc}
+                                                data-tooltip-content={localize(
+                                                    work,
+                                                    'desc',
+                                                    lang
+                                                )}
                                             >
                                                 <h4 className="bold-text">
-                                                    {work.name}
+                                                    {localize(
+                                                        work,
+                                                        'name',
+                                                        lang
+                                                    )}
                                                 </h4>
                                                 <p className="p-text">
                                                     {work.company}

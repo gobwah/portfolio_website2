@@ -25,6 +25,12 @@ export default {
             name:'feedback',
             title:'Feedback',
             type:'string'
-        }
+        },
+        {
+            name:'feedback_fr',
+            title:'Feedback (FR)',
+            type:'string',
+            description:'French version. Leave empty to show the English text.'
+        },
     ]
 }
