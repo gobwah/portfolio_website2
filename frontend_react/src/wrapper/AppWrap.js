@@ -1,8 +1,10 @@
 import React from 'react'
 import { NavigationDots, SocialMedia } from '../components'
+import { useLanguage } from '../i18n'
 
 const AppWrap = (Component, idName, classNames) =>
     function HOC() {
+        const { t } = useLanguage()
         return (
             <div id={idName} className={`app__container ${classNames}`}>
                 <SocialMedia />
@@ -14,7 +16,7 @@ const AppWrap = (Component, idName, classNames) =>
                         <p className="p-text">
                             © {new Date().getFullYear()} Vincent Della-Libera
                         </p>
-                        <p className="p-text">All rights reserved</p>
+                        <p className="p-text">{t('copyright.rights')}</p>
                     </div>
                 </div>
                 <NavigationDots active={idName} />

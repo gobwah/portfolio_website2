@@ -3,15 +3,15 @@ import { HiChevronLeft, HiChevronRight } from 'react-icons/hi'
 import { motion } from 'framer-motion'
 import { AppWrap, MotionWrap } from '../../wrapper'
 import localize from '../../i18n/localize'
-import useContentLanguage from '../../i18n/useContentLanguage'
 import { urlFor, client } from '../../client'
+import { useLanguage } from '../../i18n'
 import './Testimonial.scss'
 
 const Testimonial = () => {
+    const { t, language: lang } = useLanguage()
     const [brands, setBrands] = useState([])
     const [testimonials, setTestimonials] = useState([])
     const [currentIndex, setCurrentIndex] = useState(0)
-    const lang = useContentLanguage()
 
     const handleClick = (index) => {
         setCurrentIndex(index)
@@ -85,7 +85,7 @@ const Testimonial = () => {
                 </>
             ) : (
                 <div className="app__testimonial-soon">
-                    <p className="p-text">Comming soon</p>
+                    <p className="p-text">{t('testimonial.soon')}</p>
                     <div className="dot-elastic"></div>
                 </div>
             )}

@@ -3,12 +3,12 @@ import { motion } from 'framer-motion'
 import { urlFor, client } from '../../client'
 import { AppWrap, MotionWrap } from '../../wrapper'
 import localize from '../../i18n/localize'
-import useContentLanguage from '../../i18n/useContentLanguage'
+import { useLanguage } from '../../i18n'
 
 import './About.scss'
 const About = () => {
+    const { t, language: lang } = useLanguage()
     const [abouts, setAbouts] = useState([])
-    const lang = useContentLanguage()
 
     useEffect(() => {
         const query = '*[_type == "abouts"]'
@@ -19,7 +19,7 @@ const About = () => {
     return (
         <>
             <h2 className="head-text">
-                A little about <span>me</span>
+                {t('about.title')} <span>{t('about.titleHighlight')}</span>
             </h2>
 
             <div className="app__profiles">
