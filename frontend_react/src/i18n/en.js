@@ -16,8 +16,6 @@ const en = {
     'header.greeting': 'Hello, I am',
     'header.role': 'Web Developer',
     'header.stack': 'Fullstack',
-    'header.viewWork': 'View my work',
-    'header.getInTouch': 'Get in touch',
 
     'about.title': 'A little about',
     'about.titleHighlight': 'me',

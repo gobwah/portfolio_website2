@@ -16,8 +16,6 @@ const fr = {
     'header.greeting': 'Bonjour, je suis',
     'header.role': 'Développeur Web',
     'header.stack': 'Fullstack',
-    'header.viewWork': 'Voir mes projets',
-    'header.getInTouch': 'Me contacter',
 
     'about.title': 'Un peu plus sur',
     'about.titleHighlight': 'moi',
