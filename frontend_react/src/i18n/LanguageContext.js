@@ -29,7 +29,7 @@ const LanguageContext = createContext({
 })
 
 // The server picks the first language (cookie, else browser setting, see
-// src/proxy.js) so the page arrives already translated.
+// the rewrites in next.config.mjs) so the page arrives already translated.
 export const LanguageProvider = ({ initialLanguage = 'en', children }) => {
     const [language, setLanguage] = useState(initialLanguage)
 

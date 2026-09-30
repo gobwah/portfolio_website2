@@ -11,7 +11,7 @@ Personal portfolio site, live at vincent-dellalibera.netlify.app. One npm projec
 ## Where things are
 
 - Page sections are one folder each under `frontend_react/src/container/`; `src/app/[lang]/page.jsx` fetches all Sanity content on the server and passes it to them as props. They are client components (`'use client'`).
-- Routes: `src/app/[lang]/` renders the site as `/en` and `/fr`; `src/proxy.js` serves `/` from one of them (language cookie, else `Accept-Language`). `src/app/studio/` is the Studio, with its own root layout.
+- Routes: `src/app/[lang]/` renders the site as `/en` and `/fr`; rewrites in `next.config.mjs` serve `/` from one of them (language cookie, else `Accept-Language`). `src/app/studio/` is the Studio, with its own root layout.
 - Sanity: `sanity.config.js` (Studio), `sanity.cli.js` (CLI), `sanity/env.js` (project id and dataset), `sanity/schemas/` (content types, each registered in `schema.js`). Image URL builder: `src/client.js`.
 - Netlify build settings: `frontend_react/netlify.toml` overrides the UI (publish `.next`); the UI base directory stays `frontend_react`. The token env var on Netlify is still named `REACT_APP_SANITY_TOKEN`, which `src/sanity/fetch.js` accepts alongside `SANITY_API_READ_TOKEN`. A new env var added only locally is silently empty in production.
 
