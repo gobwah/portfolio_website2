@@ -1,0 +1,14 @@
+# Overrides the build settings in the Netlify UI (base directory stays
+# frontend_react).
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# Without the adapter Netlify uploads .next as plain static files and every
+# route 404s. Listed explicitly because this site was set up for CRA, so
+# Netlify doesn't add it on its own.
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
