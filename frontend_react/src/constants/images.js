@@ -4,7 +4,7 @@ import graphql from '../assets/graphql.png'
 import java from '../assets/java.png'
 import logo from '../assets/logo.png'
 import mobile from '../assets/mobile.png'
-import profile from '../assets/profile.png'
+import profile from '../assets/profile.webp'
 import react from '../assets/react.png'
 
 // Next.js static imports are objects; the components only need the URL
