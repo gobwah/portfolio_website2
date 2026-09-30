@@ -40,15 +40,6 @@ const Header = () => {
                         <p className="p-text">{t('header.role')}</p>
                         <p className="p-text">{t('header.stack')}</p>
                     </div>
-
-                    <div className="app__header-actions">
-                        <a href="#work" className="app__header-btn primary">
-                            {t('header.viewWork')}
-                        </a>
-                        <a href="#contact" className="app__header-btn ghost">
-                            {t('header.getInTouch')}
-                        </a>
-                    </div>
                 </div>
             </motion.div>
 
