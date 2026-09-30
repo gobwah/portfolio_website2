@@ -1,21 +1,26 @@
+'use client'
+
 import React, { createContext, useContext, useEffect, useState } from 'react'
 import en from './en'
 import fr from './fr'
+import { LANGUAGES, LANGUAGE_COOKIE } from './languages'
 
 const dictionaries = { en, fr }
-export const LANGUAGES = Object.keys(dictionaries)
 const STORAGE_KEY = 'language'
+const ONE_YEAR = 60 * 60 * 24 * 365
 
-const getInitialLanguage = () => {
+const getStoredLanguage = () => {
     try {
         const stored = window.localStorage.getItem(STORAGE_KEY)
         if (LANGUAGES.includes(stored)) return stored
     } catch (e) {
         // localStorage can be unavailable (private mode, blocked storage)
     }
-    const browser = (navigator.language || '').slice(0, 2).toLowerCase()
-    return LANGUAGES.includes(browser) ? browser : 'en'
+    return null
 }
+
+const hasLanguageCookie = () =>
+    document.cookie.split('; ').some((c) => c.startsWith(`${LANGUAGE_COOKIE}=`))
 
 const LanguageContext = createContext({
     language: 'en',
@@ -23,8 +28,19 @@ const LanguageContext = createContext({
     t: (key) => en[key] ?? key,
 })
 
-export const LanguageProvider = ({ children }) => {
-    const [language, setLanguage] = useState(getInitialLanguage)
+// The server picks the first language (cookie, else browser setting, see
+// src/proxy.js) so the page arrives already translated.
+export const LanguageProvider = ({ initialLanguage = 'en', children }) => {
+    const [language, setLanguage] = useState(initialLanguage)
+
+    // Visitors who chose a language on the CRA site only have it in
+    // localStorage: honour it once, the cookie takes over from then on.
+    useEffect(() => {
+        const stored = getStoredLanguage()
+        if (stored && stored !== initialLanguage && !hasLanguageCookie()) {
+            setLanguage(stored)
+        }
+    }, [initialLanguage])
 
     useEffect(() => {
         try {
@@ -32,6 +48,7 @@ export const LanguageProvider = ({ children }) => {
         } catch (e) {
             // ignore: the choice just won't persist
         }
+        document.cookie = `${LANGUAGE_COOKIE}=${language}; path=/; max-age=${ONE_YEAR}; samesite=lax`
 
         const dict = dictionaries[language]
         document.documentElement.lang = language

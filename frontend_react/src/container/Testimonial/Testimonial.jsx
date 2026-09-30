@@ -1,34 +1,21 @@
-import React, { useState, useEffect } from 'react'
+'use client'
+
+import React, { useState } from 'react'
 import { HiChevronLeft, HiChevronRight } from 'react-icons/hi'
 import { motion } from 'framer-motion'
 import { AppWrap, MotionWrap } from '../../wrapper'
 import localize from '../../i18n/localize'
-import { urlFor, client } from '../../client'
+import { urlFor } from '../../client'
 import { useLanguage } from '../../i18n'
 import './Testimonial.scss'
 
-const Testimonial = () => {
+const Testimonial = ({ testimonials = [], brands = [] }) => {
     const { t, language: lang } = useLanguage()
-    const [brands, setBrands] = useState([])
-    const [testimonials, setTestimonials] = useState([])
     const [currentIndex, setCurrentIndex] = useState(0)
 
     const handleClick = (index) => {
         setCurrentIndex(index)
     }
-
-    useEffect(() => {
-        const testimonialsQuery = '*[_type == "testimonials"]'
-        const brandsQuery = '*[_type == "brands"]'
-
-        client.fetch(testimonialsQuery).then((data) => {
-            setTestimonials(data)
-        })
-
-        client.fetch(brandsQuery).then((data) => {
-            setBrands(data)
-        })
-    }, [])
 
     const currentTestimonial = testimonials[currentIndex]
 
@@ -91,7 +78,7 @@ const Testimonial = () => {
             )}
 
             <div className="app__testimonial-brands app__flex">
-                {brands
+                {[...brands]
                     .sort((brand1, brand2) =>
                         brand1.name.localeCompare(brand2.name)
                     )

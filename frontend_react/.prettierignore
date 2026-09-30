@@ -1,2 +1,4 @@
 build
+.next
 node_modules
+sanity/schemas

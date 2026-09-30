@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react'
+'use client'
+
+import React, { useState } from 'react'
 import { AiFillEye, AiFillGithub } from 'react-icons/ai'
 import { motion } from 'framer-motion'
 import { AppWrap, MotionWrap } from '../../wrapper'
 import localize from '../../i18n/localize'
-import { urlFor, client } from '../../client'
+import { urlFor } from '../../client'
 import { useLanguage } from '../../i18n'
 import './Work.scss'
 
@@ -22,13 +24,12 @@ const getCategoriesFromWorks = (works) => {
     return finalTags
 }
 
-const Work = () => {
+const Work = ({ works = [] }) => {
     const { t, language: lang } = useLanguage()
     const [activeFilter, setActiveFilter] = useState('All')
     const [animateCard, setAnimateCard] = useState({ y: 0, opacity: 1 })
-    const [works, setWorks] = useState([])
-    const [tags, setTags] = useState([])
-    const [filterWork, setFilterWork] = useState([])
+    const [filterWork, setFilterWork] = useState(works)
+    const tags = getCategoriesFromWorks(works)
 
     const handleWorkFilter = (item) => {
         setActiveFilter(item)
@@ -44,16 +45,6 @@ const Work = () => {
             }
         }, 500)
     }
-
-    useEffect(() => {
-        const query = '*[_type == "works"]'
-
-        client.fetch(query).then((data) => {
-            setWorks(data)
-            setFilterWork(data)
-            setTags(getCategoriesFromWorks(data))
-        })
-    }, [])
 
     return (
         <>
@@ -81,7 +72,7 @@ const Work = () => {
                 transition={{ duration: 0.5, delayChildren: 0.5 }}
                 className="app__work-portfolio"
             >
-                {filterWork
+                {[...filterWork]
                     .sort((work1, work2) =>
                         localize(work1, 'title', lang).localeCompare(
                             localize(work2, 'title', lang)

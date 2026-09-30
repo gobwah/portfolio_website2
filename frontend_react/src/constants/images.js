@@ -7,13 +7,16 @@ import mobile from '../assets/mobile.png'
 import profile from '../assets/profile.png'
 import react from '../assets/react.png'
 
-export const images = {
-    circle,
-    email,
-    graphql,
-    java,
-    logo,
-    mobile,
-    profile,
-    react,
-}
+// Next.js static imports are objects; the components only need the URL
+export const images = Object.fromEntries(
+    Object.entries({
+        circle,
+        email,
+        graphql,
+        java,
+        logo,
+        mobile,
+        profile,
+        react,
+    }).map(([name, image]) => [name, image.src])
+)

@@ -1,29 +1,16 @@
-import React, { useState, useEffect } from 'react'
+'use client'
+
+import React from 'react'
 import { Tooltip as ReactToolTip } from 'react-tooltip'
 import { motion } from 'framer-motion'
 import { AppWrap, MotionWrap } from '../../wrapper'
 import localize from '../../i18n/localize'
-import { urlFor, client } from '../../client'
+import { urlFor } from '../../client'
 import { useLanguage } from '../../i18n'
 import './Skills.scss'
 
-const Skills = () => {
+const Skills = ({ skills = [], experience = [] }) => {
     const { t, language: lang } = useLanguage()
-    const [skills, setSkills] = useState([])
-    const [experience, setExperience] = useState([])
-
-    useEffect(() => {
-        const queryExperience = '*[_type == "experiences"]'
-        const querySkills = '*[_type == "skills"]'
-
-        client.fetch(queryExperience).then((data) => {
-            setExperience(data)
-        })
-
-        client.fetch(querySkills).then((data) => {
-            setSkills(data)
-        })
-    }, [])
 
     return (
         <>
@@ -31,8 +18,8 @@ const Skills = () => {
 
             <div className="app__skills-container">
                 <motion.div className="app__skills-list">
-                    {skills
-                        ?.sort((skill1, skill2) =>
+                    {[...skills]
+                        .sort((skill1, skill2) =>
                             skill1.name.localeCompare(skill2.name)
                         )
                         .map((skill) => (
@@ -57,8 +44,8 @@ const Skills = () => {
                 </motion.div>
 
                 <motion.div className="app__skills-exp">
-                    {experience
-                        ?.sort((exp1, exp2) => exp1.year - exp2.year)
+                    {[...experience]
+                        .sort((exp1, exp2) => exp1.year - exp2.year)
                         .map((experience) => (
                             <motion.div
                                 className="app__skills-exp-item"

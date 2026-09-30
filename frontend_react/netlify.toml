@@ -1,0 +1,8 @@
+# Overrides the build settings in the Netlify UI (base directory stays
+# frontend_react). Netlify detects Next.js and runs it with its own adapter.
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "22"

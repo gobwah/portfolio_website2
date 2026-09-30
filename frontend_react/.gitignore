@@ -10,6 +10,14 @@
 
 # production
 /build
+/.next
+/out
+
+# netlify
+/.netlify
+
+# sanity
+/.sanity
 
 # misc
 .DS_Store

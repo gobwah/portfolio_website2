@@ -1,3 +1,5 @@
+'use client'
+
 import React, { createContext, useContext, useEffect, useState } from 'react'
 
 export const THEMES = ['light', 'dark']
@@ -24,12 +26,21 @@ const ThemeContext = createContext({
 })
 
 export const ThemeProvider = ({ children }) => {
-    const [theme, setThemeState] = useState(
-        () => getStoredTheme() ?? getBrowserTheme()
-    )
+    // The inline script in the root layout already set data-theme before
+    // first paint; the server can't know it, so read it back after hydration.
+    const [theme, setThemeState] = useState(null)
 
     useEffect(() => {
-        document.documentElement.dataset.theme = theme
+        const current = document.documentElement.dataset.theme
+        setThemeState(
+            THEMES.includes(current)
+                ? current
+                : (getStoredTheme() ?? getBrowserTheme())
+        )
+    }, [])
+
+    useEffect(() => {
+        if (theme) document.documentElement.dataset.theme = theme
     }, [theme])
 
     // Until the visitor picks a theme, keep following the browser's setting
@@ -55,7 +66,9 @@ export const ThemeProvider = ({ children }) => {
     const toggleTheme = () => setTheme(theme === 'dark' ? 'light' : 'dark')
 
     return (
-        <ThemeContext.Provider value={{ theme, setTheme, toggleTheme }}>
+        <ThemeContext.Provider
+            value={{ theme: theme ?? 'light', setTheme, toggleTheme }}
+        >
             {children}
         </ThemeContext.Provider>
     )

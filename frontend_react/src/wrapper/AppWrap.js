@@ -1,16 +1,18 @@
+'use client'
+
 import React from 'react'
 import { NavigationDots, SocialMedia } from '../components'
 import { useLanguage } from '../i18n'
 
 const AppWrap = (Component, idName, classNames) =>
-    function HOC() {
+    function HOC(props) {
         const { t } = useLanguage()
         return (
             <div id={idName} className={`app__container ${classNames}`}>
                 <SocialMedia />
 
                 <div className="app__wrapper app__flex">
-                    <Component />
+                    <Component {...props} />
 
                     <div className="copyright">
                         <p className="p-text">

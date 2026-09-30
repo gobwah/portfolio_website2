@@ -1,49 +1,33 @@
 {
     "name": "frontend_react",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "private": true,
-    "dependencies": {
-        "@sanity/client": "^7.22.0",
-        "@sanity/image-url": "^2.1.1",
-        "@testing-library/jest-dom": "^6.9.1",
-        "@testing-library/react": "^16.3.2",
-        "@testing-library/user-event": "^14.6.1",
-        "framer-motion": "^12.38.0",
-        "sass": "^1.99.0",
-        "react": "^18.2.0",
-        "react-dom": "^18.2.0",
-        "react-icons": "^5.6.0",
-        "react-scripts": "5.0.1",
-        "react-tooltip": "^6.0.2",
-        "web-vitals": "^5.2.0"
-    },
     "scripts": {
-        "start": "react-scripts start",
-        "build": "GENERATE_SOURCEMAP=false react-scripts build",
-        "test": "react-scripts test",
-        "eject": "react-scripts eject",
-        "format": "prettier --write src",
-        "format:check": "prettier --check src"
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "format": "prettier --write src sanity",
+        "format:check": "prettier --check src sanity"
     },
-    "eslintConfig": {
-        "extends": [
-            "react-app",
-            "react-app/jest"
-        ]
-    },
-    "browserslist": {
-        "production": [
-            ">0.2%",
-            "not dead",
-            "not op_mini all"
-        ],
-        "development": [
-            "last 1 chrome version",
-            "last 1 firefox version",
-            "last 1 safari version"
-        ]
+    "dependencies": {
+        "@sanity/image-url": "^2.1.1",
+        "@sanity/vision": "^6.17.0",
+        "framer-motion": "^12.38.0",
+        "next": "^16.3.7",
+        "next-sanity": "^13.3.4",
+        "react": "^19.2.3",
+        "react-dom": "^19.2.3",
+        "react-icons": "^5.6.0",
+        "react-tooltip": "^6.0.2",
+        "sanity": "^6.17.0",
+        "sass": "^1.99.0",
+        "server-only": "^0.0.1",
+        "styled-components": "^6.4.1"
     },
     "devDependencies": {
         "prettier": "^3.9.6"
+    },
+    "engines": {
+        "node": ">=20.9"
     }
 }

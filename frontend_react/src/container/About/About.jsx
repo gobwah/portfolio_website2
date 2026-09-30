@@ -1,20 +1,15 @@
-import React, { useState, useEffect } from 'react'
+'use client'
+
+import React from 'react'
 import { motion } from 'framer-motion'
-import { urlFor, client } from '../../client'
+import { urlFor } from '../../client'
 import { AppWrap, MotionWrap } from '../../wrapper'
 import localize from '../../i18n/localize'
 import { useLanguage } from '../../i18n'
 
 import './About.scss'
-const About = () => {
+const About = ({ abouts = [] }) => {
     const { t, language: lang } = useLanguage()
-    const [abouts, setAbouts] = useState([])
-
-    useEffect(() => {
-        const query = '*[_type == "abouts"]'
-
-        client.fetch(query).then((data) => setAbouts(data))
-    }, [])
 
     return (
         <>
