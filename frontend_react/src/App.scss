@@ -124,17 +124,28 @@
 
         transition: all 0.3s ease-in-out;
 
-        svg {
+        svg,
+        .app__social-malt {
             width: 15px;
             height: 15px;
             color: var(--gray-color);
+        }
+
+        // The Malt logo is a PNG used as a mask, so it takes the same
+        // color as the react-icons SVGs in both themes and on hover.
+        .app__social-malt {
+            display: block;
+            background-color: currentColor;
+            mask: url('/malt-logo.png') center / contain no-repeat;
+            -webkit-mask: url('/malt-logo.png') center / contain no-repeat;
         }
 
         &:hover {
             background-color: var(--secondary-color);
             border-color: var(--secondary-color);
 
-            svg {
+            svg,
+            .app__social-malt {
                 color: var(--white-color);
             }
         }
@@ -145,7 +156,8 @@
 
             margin: 0.5rem 0;
 
-            svg {
+            svg,
+            .app__social-malt {
                 width: 30px;
                 height: 30px;
             }
